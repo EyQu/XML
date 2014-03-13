@@ -1,0 +1,143 @@
+<map proto="1.3.2">
+	<name>Lost Civilization</name>
+	<version>1.0.0</version>
+	<objective>
+		Be the team witht he most amount of points to win! 
+	</objective>
+	<authors>
+		<author>HardstyleRaver2</author>
+	</authors>
+	<contributors>
+		<contributor contribution="Spawners and Support">Draco_Rogue</contributor>
+		<contributor contribution="Helping me with block 71:3">JTerwiesch</contributor>
+		<contributor contribution="Map XML">_IQ</contributor>
+	</contributors>
+	<teams>
+		<team color="dark_green" max="35">Green Team</team>
+		<team color="blue" max="35">Blue Team</team>
+	</teams>
+	<regions>
+		<union name="Green_Spawn_Area">
+			<cuboid name="Green_Back_Area" min="-6.5,0,13.5" max="51.5,55.5,-70.5"/>
+		</union>
+		<union name="Blue_Spawn_Area">
+			<cuboid name="Blue_Back_Area" min="51.5,0,-257.5" max="-6.5,55.5,-173.5"/>
+		</union>
+		<cuboid name="Blue_Middle_Area" min="79.5,0,-134.5" max="139,28,108"/>
+		<cuboid name="Green_Middle_Area" min="34.5,0,109.5" max="80.5,55.5,-71.5"/>
+		<cuboid name="Middle" min="-34.5,0,-133.5" max="79.5,35.5,-110.5"/>
+		<rectangle name="Global_Buildable" min="-oo,-oo" max="-oo,-oo"/>
+		<apply block="anti_grief_green" message="You may not place TNT in your base behind the wall!">
+			<region name="Green_Spawn_Area"/>
+		</apply>
+		<apply block="anti_grief_blue" message="You may not place TNT in your base behind the wall!">
+			<region name="Blue_Spawn_Area"/>
+		</apply>
+		<apply block="deny-all" message="You may not build in the void">
+			<negative>
+				<region name="Global_Buildable"/>
+			</negative>
+		</apply>
+		<apply block="deny-all" message="You may not build outside of the map regions">
+			<intersect>
+			<region name="Global_Buildable"/>
+				<negative>
+					<region name="Green_Middle_Area"/>
+					<region name="Blue_Middle_Area"/>
+					<region name="Middle"/>
+				</negative>
+			</intersect>
+		</apply>
+		<apply block="no-void">
+			<region name="Green_Middle_Area"/>
+			<region name="Blue_Middle_Area"/>
+			<region name="Blue_Spawn_Area"/>
+			<region name="Green_Spawn_Area"/>
+		</apply>
+	</regions>
+	<filters>
+		<filter name="anti_grief_green">
+			<not>
+				<block>tnt</block>
+				<team>Green Team</team>
+			</not>
+		</filter>
+		<filter name="anti_grief_green">
+			<not>
+				<block>tnt</block>
+				<team>Blue Team</team>
+			</not>
+		</filter>
+		<filter name="no-void">
+			<deny>
+				<void/>
+			</deny>
+		</filter>
+	</filters>
+	<kits>
+		<kit name="spawn">
+			<item slot="0" damage="-3000">stone sword</item>
+			<item slot="1" enchantment="arrow infinite:1">bow</item>
+			<item slot="2" enchantment="durability:3;loot_bonus_blocks:1">iron pickaxe</item>
+			<item slot="3">diamond axe</item>
+			<item slot="4" amount="64">steak</item>
+			<item slot="5" amount="64">17:3</item>
+			<item slot="6" amount="64">17:3</item>
+			<item slot="7" amount="64">glass</item>
+			<item slot="8" name="Anti-Team-Grief Tool" lore="Right click griefer TNT to defuse">shears</item>
+			<item slot="28" amount="1">arrow</item>
+		</kit>
+		<kit name="blue" parents="spawn">
+			<helmet color="9845C5" damage="-3000">leather helmet</helmet>
+			<chestplate enchantment="protection_explosives" color="9845C5" damage="-3000">leather chestplate</chestplate>
+			<leggings color="9845C5" damage="-3000">leather leggings</leggings>
+			<boots color="9845C5" damage="-3000">leather boots</boots>
+		</kit>
+		<kit name="green" parents="spawn">
+			<helmet color="72A526" damage="-3000">leather helmet</helmet>
+			<chestplate enchantment="protection_explosives" color="72A526" damage="-3000">leather chestplate</chestplate>
+			<leggings color="72A526" damage="-3000">leather leggings</leggings>
+			<boots color="72A526" damage="-3000">leather boots</boots>
+		</kit>
+	</kits>
+	<timelock>on</timelock>
+	<spawns>
+		<spawn team="blue" kit="blue" yaw="0">
+			<cuboid min="22.5,31,-234.5" max="22.5,31,-233.5"/>
+		</spawn>
+		<spawn team="green" kit="green" yaw="180">
+			<cuboid min ="22.5,31,-9.5" max="22.5,31,-10.5"/>
+		</spawn>
+	</spawns>
+	<score>
+		<time>15m</time>
+		<limit>500</limit>
+	</score>
+	<itemremove>
+		<item>5:3</item>
+		<item>44.5</item>
+		<item>159:3</item>
+		<item>159:11</item>
+		<item>43:8</item>
+		<item>109</item>
+		<item>98</item>
+		<item>98:1</item>
+		<item>98:2</item>
+		<item>2</item>
+		<item>139</item>
+		<item>139:1</item>
+		<item>1</item>
+		<item>3</item>
+	</itemremove>
+	<toolrepair>
+		<tool>stonesword</tool>
+		<tool>bow</tool>
+		<tool>iron pickaxe</tool>
+		<tool>diamond axe</tool>
+		<tool>shears</tool>
+		<tool>leather helmet</tool>
+		<tool>leather boots</tool>
+		<tool>leather chestplate</tool>
+		<tool>leatherleggings</tool>
+	</toolrepair>
+</map>
