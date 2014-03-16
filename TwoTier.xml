@@ -1,0 +1,143 @@
+<map proto="1.3.0">
+	<name>Two Tier</name>
+	<version>1.0.4</version>
+	<objective>
+		Capture the wool from the enemies wool rooms and return them to your victory monument
+	</objective>
+	<authors>
+		<author>nixter1029</author>
+			<author>_IQ</author>
+			<author>Tywnis</author>
+		</authors>
+	<rules>
+		<rule>
+			You may not use lava or obsidian to cover over 50% of a lane.
+		</rule>
+		<rule>
+			Abusing glitches to get into otherwise un-obtainable areas is illegal.
+		</rule>
+	</rules>
+	<teams>
+		<team color="blue" max="32">Blue Team</team>
+		<team color="dark red" max="32">Red Team</team>
+	</teams>
+	<spawns>
+		<spawns kit="spawn">
+			<spawn team="blue" yaw="-90">
+				<cuboid name="blue-spawn-point" min="-156.5,19,52.5" max="-154.5,19,59.5"/>
+			</spawn>
+			<spawn team="red" yaw="90">
+				<cuboid name="red-spawn-point" min="21.5,19,59.5" max="19.5,19,52.5"/>
+			</spawn>
+		</spawns>
+		<default yaw="180">
+			<cuboid name="observer-spawn" min="-68.5,53,53.5" max="-65.5,53,56.5"/>
+		</default>
+	</spawns>
+	<kits>
+		<kit name="spawn">
+			<item slot="0">iron sword</item>
+			<item slot="1" enchantment="arrow infinite:1">bow</item>
+			<item slot="28">arrow</item>
+			<item slot="2" enchantment="durability:3;dig speed:1">iron pickaxe</item>
+			<item slot="3" enchantment="durability:3;dig speed:1">iron axe</item>
+			<item slot="4" amount="64" damage="2">log</item>
+			<item slot="5" amount="32">glass</item>
+			<item slot="6" amount="2">golden apple</item>
+			<item slot="7" amount="64">cooked fish</item>
+		</kit>
+	</kits>
+	<maxbuildheight>32</maxbuildheight>
+	<toolrepair>
+		<tool>iron sword</tool>
+		<tool>bow</tool>
+		<tool>iron pickaxe</tool>
+		<tool>iron axe</tool>
+		<tool>arrow</tool>
+	</toolrepair>
+	<itemremove>
+		<item>log</item>
+		<item>wood</item>
+		<item>cooked fish</item>
+		<item>iron sword</item>
+		<item>glass</item>
+		<item>diamond block</item>
+		<item>emerald block</item>
+		<item>gold block</item>
+	</itemremove>
+	<filters>
+		<filter name="only-blue" parents="deny-players deny-world">
+			<allow>
+				<team>blue</team>
+			</allow>
+		</filter>
+		<filter name="only-red" parents="deny-players deny-world">
+			<allow>
+				<team>red</team>
+			</allow>
+		</filter>
+		<filter name="no-void">
+			<deny>
+				<void/>
+			</deny>
+		</filter>
+	</filters>
+	<regions>
+		<negative name="outside-map">
+			<rectangle name="map" min="36,103" max="-171,9"/>
+		</negative>
+		<negative name="outside-center">
+			<rectangle name="center" min="-83,18" max="-52,94"/>
+		</negative>
+		<rectangle name="red-spawn" min="13,47" max="26,65"/>
+		<rectangle name="blue-spawn" min="-148,65" max="-161,47"/>
+		<union name="blue-wool-rooms">
+<!--  Yellow Room  -->
+			<rectangle min="-170.5,102.5" max="-152.5,75.5"/>
+<!--  Lime Room  -->
+			<rectangle min="-170.5,9.5" max="-152.5,36.5"/>
+		</union>
+		<union name="red-wool-rooms">
+<!--  Cyan Room  -->
+			<rectangle min="35.5,9.5" max="17.5,36.5"/>
+<!--  Purple Room  -->
+			<rectangle min="35.5,102.5" max="17.5,75.5"/>
+		</union>
+		<apply block="no-void">
+			<region name="outside-center"/>
+		</apply>
+		<apply enter="only-red" block="only-red" message="You may not enter or modify your own wool rooms!">
+			<region name="blue-wool-rooms"/>
+		</apply>
+		<apply enter="only-blue" block="only-blue" message="You may not enter or modify your own wool rooms!">
+			<region name="red-wool-rooms"/>
+		</apply>
+		<apply enter="only-red" message="You may not enter enemy spawn room!">
+			<region name="red-spawn"/>
+		</apply>
+		<apply enter="only-blue" message="You may not enter enemy spawn room!">
+			<region name="blue-spawn"/>
+		</apply>
+		<apply block="deny-all" message="Don't modify outside the map!">
+			<region name="outside-map"/>
+		</apply>
+		<apply block="deny-all" message="Don't modify the spawns!">
+			<region name="blue-spawn"/>
+			<region name="red-spawn"/>
+		</apply>
+	</regions>
+	<wools>
+		<wool team="red" color="lime">
+			<block location="24,21,55"/>
+		</wool>
+		<wool team="red" color="yellow">
+			<block location="24,21,56"/>
+		</wool>
+		<wool team="blue" color="cyan">
+			<block location="-160,21,55"/>
+		</wool>
+		<wool team="blue" color="purple">
+			<block location="-160,21,56"/>
+		</wool>
+	</wools>
+</map>
