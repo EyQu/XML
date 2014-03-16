@@ -13,9 +13,6 @@
 		<rule>
 			You may not use lava or obsidian to cover over 50% of a lane.
 		</rule>
-		<rule>
-			Abusing glitches to get into otherwise un-obtainable areas is illegal.
-		</rule>
 	</rules>
 	<teams>
 		<team color="blue" max="32">Blue Team</team>
