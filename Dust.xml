@@ -13,4 +13,56 @@
 		<team color="dark-purple" max="10">Purple Team</team>
 		<team color="green" max="10">Lime Team</team>
 	</teams>
-	
+	<blitz>
+		<time>5m</time>
+		<lives>2</lives>
+	</blitz>
+	<timelock>off</timelock>
+	<spawns>
+		<spawn team="purple" kit="purple" yaw="180">
+			<cylinder base="65.5,56,70.5" radius="1"/>
+		</spawn>
+		<spawn team="lime" kit="lime" yaw="0">
+			<cylinder base="65.5,56,-151.5" radius="1"/>
+		</spawn>
+		<default yaw="-90">
+			<cylinder base="119,72,-40.5" radius ="1"/>
+		</default>
+	</spawns>
+	<kits>
+		<kit name="spawn">
+			<item slot="0">stone sword</item>
+			<item slot="1">bow</item>
+			<item slot="2">stone pickaxe</item>
+			<item slot="3" amount="8">double step:8</item>
+			<item slot="7" amount="1">golden apple</item>
+			<item slot="8" amount="16">apple</item>
+		</kit>
+		<kit name="lime" parents="spawn">
+			<helmet color="7F3FB2">leather helmet</helmet>
+			<chestplate color="7F3FB2">leather chestplate</chestplate>
+			<leggings>golden leggings</leggings>
+			<boots color="F3F3FB2">leather boots</boots>
+		</kit>
+		<kit name="purple" parents="spawn">
+			<helmet color="7BC21C">leather helmet</helmet>
+			<chestplate color="7BC21C">leather chestplate</chestplate>
+			<leggings>golden leggings</leggings>
+			<boots color="7BC21C">leather boots</boots>
+		</kit>
+	</kits>
+	<toolrepair>
+		<tool>stone sword</tool>
+		<tool>bow</tool>
+		<tool>stone pickaxe</tool>
+	</toolrepair>
+	<itemremove>
+		<item>double step:8</item>
+		<item>apple</item>
+	</itemremove>
+	<killreward>
+		<item>golden apple</item>
+	</killreward>
+	<filters>
+		
+	</filters>
