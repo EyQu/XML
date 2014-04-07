@@ -3,10 +3,10 @@
 <version>1.0.0</version>
 <objective>Destroy the other team's monument to win!</objective>
 <authors>
-  <authir>salalu</authir>
+  <author>salalu</author>
 </authors>
 <contributors>
-  <contributor contribution="Map xml">_IQ</contributor>
+  <contributor contribution="Map xml and packaging">_IQ</contributor>
   <contributor contribution="Map editing and feedback">JETUB1</contributor>
   <contributor contribution="Map Feedback">moo88888888</contributor>
   <contributor>Avaleer</contributor>
