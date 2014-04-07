@@ -1,3 +1,108 @@
 <map proto="1.3.2">
 <name>Tributary</name>
 <version>1.0.0</version>
+<objective>Destroy the other team's monument to win!</objective>
+<authors>
+  <authir>salalu</authir>
+</authors>
+<contributors>
+  <contributor contribution="Map xml">_IQ</contributor>
+  <contributor contribution="Map editing and feedback">JETUB1</contributor>
+  <contributor contribution="Map Feedback">moo88888888</contributor>
+  <contributor>Avaleer</contributor>
+  <contributor>Blockdrop74</contributor>
+</contributors>
+<teams>
+  <team color="dark_aqua" max="18">Cyan Team</team>
+  <team color="gold" max="18">Orange Team</team>
+</teams>
+<timelock>off</timelock>
+<spawns>
+  <spawn team="cyan" kit="cyan" yaw="0">
+    <block>-13.5,74.3,20.5</block>
+  </spawn>
+  <spawn team="orange" kit="orange" yaw="180">
+    <block>9.5,74.3,147.5</block>
+  </spawn>
+  <default yaw="180">
+    <cuboid min="-3.5,126,83.5" max="-2.5,126,84.5"/>
+  </default>
+</spawns>
+<kits>
+  <kit name="spawn">
+    <item slot="0" enchantment="damage_all:1">stone sword</item>
+    <item slot="1" enchantment="arrow_infinite:1">bow</item>
+    <item slot="2">diamond pickaxe</item>
+    <item slot="3">iron axe</item>
+    <item slot="4" amount="32">wood:3</item>
+    <item slot="5" amount="64">leaves</item>
+    <item slot="6" amount="16">vines</item>
+    <item slot="7" amount="32">cooked chicken</item>
+    <item slot="8" amount="1">iron ingot</item>
+    <item slot="28" amount="1">arrow</item>
+    <potion duration="5">damage resistance</potion>
+  </kit>
+  <kit name="cyan" parents="spawn">
+    <helmet enchantment="oxygen:1">iron helmet</helmet>
+    <chestplate color="C06233">leather chestplate</chestplate>
+    <leggings>iron leggings</leggings>
+    <boots color="C06233">leather boots</boots>
+  </kit>
+  <kit name="orange" parents="spawn">
+    <helmet enchantment="oxygen:1">iron helmet</helmet>
+    <chestplate color="71B1C6">leather chestplate</chestplate>
+    <leggings>iron leggings</leggings>
+    <boots color="71B1C6">leather boots</boots>
+  </kit>
+</kits>
+<filter>
+  <filter name="only-cyan" parents="deny-players deny-world">
+    <allow>
+      <team>cyan</team>
+    </allow>
+  </filter>
+  <filter name="only-orange" parents="deny-players deny-world">
+    <allow>
+      <team>orange</team>
+    </allow>
+  </filter>
+</filter>
+<regions>
+  <apply block="deny-all" message="You may not build outside of the map!">
+    <regative name="playable-inverse">
+      <cuboid name ="playable" min="24,63,17" max="-27,98,150"/>
+    </regative>
+  </apply>
+  <!-- Spawn Protections -->
+  <apply block="deny-all" enter="only-cyan" message="You may not edit around the spawns!">
+    <rectangle name="cyan-spawn" min="-18.5,17.5" max="-8.5,24.5"/>
+  </apply>
+  <apply block="deny=all" enter="only-orange" message="You may not edit around the spawns!">
+    <rectangle name="orange-spawn" min="5. 5,143.5" max="14.5,150.5"/>
+  </apply>
+</regions>
+<toolrepair>
+  <tool>stone sword</tool>
+  <tool>diamond pickaxe</tool>
+  <tool>iron axe</tool>
+  <tool>bow</tool>
+</toolrepair>
+<destroyables materials="obsidian">
+  <destroyable name="Monument" owner="cyan">
+    <cuboid name="cyan-monument" min="-17,82,146" max="-17,83,146"/>
+  </destroyable>
+  <destroyable name="Monument"  owner="orange">
+    <cubois name="orange-monument" min="12,82,21" max="12,83,21"/>
+  </destroyable>
+</destroyables>
+<itemremove>
+  <item>obsidian</item>
+  <item>cooked chicken</item>
+  <item>leaves</item>
+  <item>wood</item>
+  <item>vines</item>
+</itemremove>
+<killreward>
+  <item amount="1">iron ingot</item>
+</killreward>
+</map>
