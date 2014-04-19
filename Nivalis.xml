@@ -92,6 +92,7 @@
     <item>diamond block</item>
     <item>snowball</item>
     <item>red mushroom</item>
+    <item>flint</item>
   </item>
   <destroyables materials="obsidian">
     <destroyable name="Monument" owner="blue">
