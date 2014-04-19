@@ -86,7 +86,7 @@
     <tool>diamond pickaxe</tool>
     <tool>bow</tool>
   </toolrepair>
-  <item remove>
+  <itemremove>
     <item>redstone</item>
     <item>coal</item>
     <item>obsidian</item>
@@ -94,7 +94,7 @@
     <item>snowball</item>
     <item>red mushroom</item>
     <item>flint</item>
-  </item>
+  </itemremove>
   <destroyables materials="obsidian">
     <destroyable name="Monument" owner="blue">
       <cuboid name="blue-monument" min="-118,26,-67" max="-118,29,-67"/>
