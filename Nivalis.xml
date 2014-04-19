@@ -1,1 +1,104 @@
-<hi>
+<map proto="1.3.2">
+  <name>Nivalis</name>
+  <version>1.0.0</version>
+  <objective>Break the other teams obsidian monument to win!</objective>
+  <authors>
+    <author>_IQ</author>
+    <author>salalu</author>
+  </authors>
+  <contributors>
+    <contributor contribution="Map building and feedback">moo88888888</contributor>
+  </contributors>
+  <teams>
+    <team color="blue" max="32">Blue Team</team>
+    <team color="dark-red" max="32">Red Team</team>
+  </teams>
+  <timelock>on</timelock>
+  <spawns>
+    <spawns>
+      <spawn team="blue" kit="blue" yaw="180">
+        <cuboid min="-161.5,40,-39.5" max="-153.5,40,-48.5"/>
+      </spawn>
+      <spawn team="red" kit="red" yaw="0">
+        <cuboid min="207.5,40,-94.5" max="199.5,40,-85.5"/>
+      </spawn>
+    </spawns>
+    <default yaw="0">
+      <cuboid min="24.5,82,-128.5" max="21.5,82,-125.5"/>
+    </default>
+  </spawns>
+  <kits>
+    <kit name="spawn">
+      <item slot="0">stone sword</item>
+      <item slot="1">bow</item>
+      <item slot="2">diamond pickaxe</item>
+      <item slot="3" amount="32">log</item>
+       <item slot="4" amount="64">stone</item>
+       <item slot="5" amount="2">golden apple</item>
+       <item slot="6" amount="64">bread</item>
+       <item slot="7" amount="64">arrow</item>
+       <item slot="8" amount="64">arrow</item>
+       <potion duration="5">damage resistance</potion>
+    </kit>
+    <kit name="red" parents="spawn">
+      <helmet color="A54C4C">leather helmet</helmet>
+      <chestplate color="A54C4C">leather chestplate</chestplate>
+    </kit>
+    <kit name="blue" parents="spawn">
+      <helmet color="6678C5">leather helmet</helmet>
+      <chestplate color="6678C5">leather chestplate</chestplate>
+    </kit>
+  </kits>
+  <filters>
+    <filter name="only-blue" parents="deny-players deny-world">
+      <allow>
+        <team>blue</team>
+      </allow>
+    </filter>
+    <filter name="only-red" parents="deny-players deny-world">
+      <allow>
+        <team>red</team>
+      </allow>
+    </filter>
+  </filters>
+  <regions>
+    <!-- Main playing area -->
+    <apply block="deny-all" message="You may not build outside of the map!">
+      <negative name="playable-inverse">
+        <rectangle name="playable" min="-175,-26" max="221,-107"/>
+      </negative>
+    </apply>
+    <apply block="dany-all" message="You cannot interact with the other team's spawn!">
+      <cuboid name="red-spawn" min="213.5,30,-100.5" max="192.5,50,-78.5"/>
+      <cuboid name="blue-spawn" min="-167.5,30,-33.5" max="-146.5,50,-55.5"/>
+    </apply>
+    <apply enter="only-red" message="Don't enter the enemy spawn!">
+      <region name="red-spawn"/>
+    </apply>
+    <apply enter="only-blue" message="Don't enter the enemy spawn!">
+      <region name="blue-spawn"/>
+    </apply>
+  </regions>
+  <maxbuildheight>40</maxbuildheight>
+  <toolrepair>
+    <tool>stone sword</tool>
+    <tool>diamond pickaxe</tool>
+    <tool>bow</tool>
+  </toolrepair>
+  <item remove>
+    <item>redstone</item>
+    <item>coal</item>
+    <item>obsidian</item>
+    <item>diamond block</item>
+    <item>snowball</item>
+    <item>red mushroom</item>
+  </item>
+  <destroyables materials="obsidian">
+    <destroyable name="Monument" owner="blue">
+      <cuboid name="blue-monument" min="-118,26,-67" max="-118,29,-67"/>
+    </destroyable>
+    <destroyable name="Monument" owner="red">
+      <cuboid name="red-monument" min="164,26,-68" max="164,29,-68"/>
+    </destroyable>
+  </destroyables>
+</map>
