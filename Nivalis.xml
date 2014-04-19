@@ -97,10 +97,10 @@
   </itemremove>
   <destroyables materials="obsidian">
     <destroyable name="Monument" owner="blue">
-      <cuboid name="blue-monument" min="-118,26,-67" max="-118,29,-67"/>
+      <cuboid name="blue-monument" min="-118,26,-66" max="-120,30,-98"/>
     </destroyable>
     <destroyable name="Monument" owner="red">
-      <cuboid name="red-monument" min="164,26,-68" max="164,29,-68"/>
+      <cuboid name="red-monument" min="165,27,-67" max="163,29,-69"/>
     </destroyable>
   </destroyables>
 </map>
